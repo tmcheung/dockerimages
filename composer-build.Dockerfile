@@ -1,4 +1,5 @@
-FROM cimg/rust:1.65-node
+FROM cimg/rust:1.67-node
+
 
 RUN sudo apt-get update && sudo apt-get install -y  \
     libx11-dev \
@@ -9,6 +10,7 @@ RUN sudo apt-get update && sudo apt-get install -y  \
     libjavascriptcoregtk-4.0-dev \
     libwebkit2gtk-4.0-dev \
     libusb-1.0-0-dev \
-    libxdo-dev
+    libxdo-dev \
+    libudev-dev
 
 RUN sudo corepack enable && corepack prepare pnpm@latest --activate && SHELL=`which bash` pnpm setup
